@@ -1,0 +1,10 @@
+{
+	"properties": [
+		{
+			"name": "aws.log.table-name",
+			"type": "java.lang.String",
+			"defaultValue": "sys_weblog",
+			"description": "自定义日志表名，默认为:sys_weblog"
+		}
+	]
+}
