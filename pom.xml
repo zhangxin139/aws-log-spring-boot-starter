@@ -6,7 +6,26 @@
 
     <groupId>io.github.zhangxin139</groupId>
     <artifactId>aws-log-spring-boot-starter</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0-RELEASE</version>
+
+    <licenses>
+        <license>
+            <name>The Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+    <developers>
+        <developer>
+            <name>zhangx</name>
+            <email>zxrmrf@163.com</email>
+        </developer>
+    </developers>
+    <scm>
+        <connection>scm:git@github.com:zhangxin139/aws-log-spring-boot-starter.git</connection>
+        <developerConnection>scm:git@github.com:zhangxin139/aws-log-spring-boot-starter.git</developerConnection>
+        <url>git@github.com:zhangxin139/aws-log-spring-boot-starter.git</url>
+    </scm>
+
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -57,8 +76,48 @@
         </dependency>
     </dependencies>
 
-
     <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.6.1</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.0.2</version>
+                <configuration></configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.2.0</version>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                    <aggregate>true</aggregate>
+                    <charset>UTF-8</charset>
+                    <docencoding>UTF8</docencoding>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                        <configuration>
+                            <additionalparam>-Xdoclint:none</additionalparam>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
         <resources>
             <resource>
                 <directory>src/main/java</directory>
@@ -72,4 +131,16 @@
             </resource>
         </resources>
     </build>
+    <distributionManagement>
+        <snapshotRepository>
+            <id>oss</id>
+            <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>oss</id>
+            <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
+
+
 </project>
